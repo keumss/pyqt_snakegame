@@ -4,12 +4,12 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QPainter, QPen, QColor, QBrush
 from PyQt5.QtCore import Qt, QTimer
 
-SPEED = 50
+SPEED = 40  # 50:easy, 40:normal, 30:hard
 INIT_BODY_LEN = 2
 
-BOARD_W = 300
-BOARD_H = 300
-UNIT_LEN = 10
+BOARD_W = 400
+BOARD_H = 400
+UNIT_LEN = 20
 BOARD_WCNT = BOARD_W / UNIT_LEN
 BOARD_HCNT = BOARD_H / UNIT_LEN
 
@@ -19,12 +19,12 @@ dy = [-1, 0, 1, 0]
 
 class Snake:
     def __init__(self):
-        if INIT_BODY_LEN in range(1, 5):
+        if INIT_BODY_LEN in range(2, 5):
             self.body = []
             for i in range(0, INIT_BODY_LEN):
-                self.body.append((10-i, 10))
+                self.body.append((5-i, 5))
         else:
-            self.body = [(10, 10), (9, 10)]
+            self.body = [(5, 5), (4, 5)]
         self.dir = 1
         self.ndir = 1
 
@@ -45,10 +45,11 @@ class GameWindow(QMainWindow):
 
     def initUI(self):
         self.setWindowTitle('Snake Game')
-        self.resize(BOARD_W, BOARD_H)
+        self.setFixedSize(BOARD_W, BOARD_H)     #self.resize(BOARD_W, BOARD_H)
         self.center()
         self.initMenu()
         self.initGame()
+        self.newGame()
 
     def center(self):
         qr = self.frameGeometry()
@@ -80,17 +81,29 @@ class GameWindow(QMainWindow):
         filemenu.addAction(action_quit)
 
     def initGame(self):
+        self.lbl_score = QLabel(self)
+        self.lbl_score.move(BOARD_W - 120, 0)
+        self.lbl_score.resize(120, 30)
+        font = self.lbl_score.font()
+        font.setFamily('Times New Roman')
+        font.setPointSize(15)
+        self.lbl_score.setFont(font)
+
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.mainLoop)
+
+    def newGame(self):
         self.statusBar().showMessage('press direction key to start')
         self.gameState = 'stop'
         self.snake = Snake()
         self.apple = self.createApple()
-        self.timer = QTimer(self)
-        self.timer.timeout.connect(self.mainLoop)
+        self.score = 0
+        self.lbl_score.setText('score : %d' % 0)
         self.update()
 
     def createApple(self):
         while True:
-            apple = (random.randint(5, BOARD_WCNT), random.randint(5, BOARD_HCNT))
+            apple = (random.randint(5, BOARD_WCNT - 1), random.randint(5, BOARD_HCNT - 1))
             if apple not in self.snake.body:
                 return apple
 
@@ -104,20 +117,21 @@ class GameWindow(QMainWindow):
         self.timer.stop()
 
     def mainLoop(self):
-        #print('mainLoop..')
         self.snake.dir = self.snake.ndir
         nh = self.snake.nextHead()
 
         if nh in self.snake.body or \
-            nh[0] < 0 or nh[1] < 0:
+            nh[0] < 0 or nh[0] >= BOARD_WCNT or nh[1] < 0 or nh[1] >= BOARD_HCNT:
             self.stopGame()
             self.statusBar().showMessage('game over')
-            QMessageBox.about(self, 'Game over', 'Score : %d' % (len(self.snake.body) - INIT_BODY_LEN) )
-            self.initGame()
+            QMessageBox.about(self, 'Game over', 'Game over!')
+            self.newGame()
             return
         elif nh == self.apple:
             self.snake.moveHead(nh)
             self.apple = self.createApple()
+            self.score += 1
+            self.lbl_score.setText('score : %d' % self.score)
         else:
             self.snake.moveHead(nh)
             self.snake.cutTail()
@@ -172,6 +186,7 @@ class GameWindow(QMainWindow):
 
     def slot_setting(self):
         print("setting!")
+        QMessageBox().about(self, 'rank', 'to be implemented')
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

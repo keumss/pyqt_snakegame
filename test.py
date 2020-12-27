@@ -1,5 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QTabWidget, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QFrame, QColorDialog
+from PyQt5.QtGui import QColor
 
 
 class MyApp(QWidget):
@@ -9,21 +10,26 @@ class MyApp(QWidget):
         self.initUI()
 
     def initUI(self):
-        tab1 = QWidget()
-        tab2 = QWidget()
+        col = QColor(0, 0, 0)
 
-        tabs = QTabWidget()
-        tabs.addTab(tab1, 'Tab1')
-        tabs.addTab(tab2, 'Tab2')
+        self.btn = QPushButton('Dialog', self)
+        self.btn.move(30, 30)
+        self.btn.clicked.connect(self.showDialog)
 
-        vbox = QVBoxLayout()
-        vbox.addWidget(tabs)
+        self.frm = QFrame(self)
+        self.frm.setStyleSheet('QWidget { background-color: %s }' % col.name())
+        self.frm.setGeometry(130, 35, 100, 100)
 
-        self.setLayout(vbox)
-
-        self.setWindowTitle('QTabWidget')
-        self.setGeometry(300, 300, 300, 200)
+        self.setWindowTitle('Color Dialog')
+        self.setGeometry(300, 300, 250, 180)
         self.show()
+
+    def showDialog(self):
+        col = QColorDialog.getColor()
+
+
+        if col.isValid():
+            self.frm.setStyleSheet('QWidget { background-color: %s }' % col.name())
 
 
 if __name__ == '__main__':

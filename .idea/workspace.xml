@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d934b151-e608-453d-a35f-995f79ff55e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1m3RQTvZmhgobCj9cDlWNVQDK8K" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.game">
+    <configuration name="game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Anaconda3\envs\pyqt_snakegame\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pyqt_snakegame" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.game" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d934b151-e608-453d-a35f-995f79ff55e7" name="Default Changelist" comment="" />
+      <created>1608720271268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608720271268</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1272" y="256" key="#com.intellij.ide.util.MemberChooser" timestamp="1609158354102">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="1272" y="256" key="#com.intellij.ide.util.MemberChooser/62.0.1858.1080@62.0.1858.1080" timestamp="1609158354102" />
+    <state width="195" height="442" key="Diff.GoToChangePopup" timestamp="1609057032320">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="195" height="442" key="Diff.GoToChangePopup/62.0.1858.1080@62.0.1858.1080" timestamp="1609057032320" />
+    <state x="495" y="100" width="1332" height="880" key="DiffContextDialog" timestamp="1609057068301">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="495" y="100" width="1332" height="880" key="DiffContextDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1609057068301" />
+    <state width="1149" height="128" key="GridCell.Tab.0.bottom" timestamp="1609162007193">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1149" height="128" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1609162007193" />
+    <state width="1149" height="128" key="GridCell.Tab.0.center" timestamp="1609162007193">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1149" height="128" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1609162007193" />
+    <state width="1149" height="128" key="GridCell.Tab.0.left" timestamp="1609162007193">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1149" height="128" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1609162007193" />
+    <state width="1149" height="128" key="GridCell.Tab.0.right" timestamp="1609162007193">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state width="1149" height="128" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1609162007193" />
+    <state x="1256" y="241" key="RollbackChangesDialog" timestamp="1609045017005">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="1256" y="241" key="RollbackChangesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1609045017005" />
+    <state x="750" y="163" key="SettingsEditor" timestamp="1609162014074">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="750" y="163" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1609162014074" />
+    <state x="1108" y="272" width="584" height="536" key="find.popup" timestamp="1609045252616">
+      <screen x="62" y="0" width="1858" height="1080" />
+    </state>
+    <state x="1108" y="272" width="584" height="536" key="find.popup/62.0.1858.1080@62.0.1858.1080" timestamp="1609045252616" />
+  </component>
+</project>

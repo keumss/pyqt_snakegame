@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon, QPainter, QPen, QColor, QBrush
 from PyQt5.QtCore import Qt, QTimer
 
-###
 SPEED = 50  # 50:easy, 40:normal, 30:hard
 SPD_LIST = [50, 40, 30]
 

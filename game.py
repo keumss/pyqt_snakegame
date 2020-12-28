@@ -184,7 +184,18 @@ class GameWindow(QMainWindow):
 
     def slot_setting(self):
         print("setting!")
-        QMessageBox().about(self, 'rank', 'to be implemented')
+        dlg = QDialog()
+        
+        btn1 = QRadioButton('111', self)
+        btn2 = QRadioButton('222', self)
+        btn3 = QPushButton('Save', self)
+        vbox = QVBoxLayout()
+        vbox.addWidget(btn1)
+        vbox.addWidget(btn2)
+        vbox.addWidget(btn3)
+        dlg.setLayout(vbox)
+        #
+        dlg.exec_()
 
 
 if __name__ == "__main__":

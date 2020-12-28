@@ -5,6 +5,8 @@ from PyQt5.QtGui import QIcon, QPainter, QPen, QColor, QBrush
 from PyQt5.QtCore import Qt, QTimer
 
 SPEED = 50  # 50:easy, 40:normal, 30:hard
+SPD_LIST = [50, 40, 30]
+
 BOARD_W = 400
 BOARD_H = 400
 UNIT_CELL_LEN = 20
@@ -126,6 +128,63 @@ class GameBoard(QWidget):
         qp.setBrush(self.color_head)
         qp.drawRect(head[0] * UNIT_CELL_LEN, head[1] * UNIT_CELL_LEN, UNIT_CELL_LEN, UNIT_CELL_LEN)
 
+class OptionWindow(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        global SPEED
+        self.setWindowTitle('Option')
+        self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
+
+        self.val = SPD_LIST.index(SPEED)
+        print('cur speed : %d' % SPEED)
+
+        lbl = QLabel('Select game mode')
+        self.rbtn_easy = QRadioButton('Easy', self)
+        self.rbtn_normal = QRadioButton('Normal', self)
+        self.rbtn_hard = QRadioButton('Hard', self)
+
+        if self.val == 0:
+            self.rbtn_easy.setChecked(True)
+        elif self.val == 1:
+            self.rbtn_normal.setChecked(True)
+        elif self.val == 2:
+            self.rbtn_hard.setChecked(True)
+
+        btn_save = QPushButton('Save', self)
+        btn_save.clicked.connect(self.set_speed)
+        btn_cancel = QPushButton('Cancel', self)
+        btn_cancel.clicked.connect(self.close)
+        hbox = QHBoxLayout()
+        hbox.addWidget(btn_save)
+        hbox.addWidget(btn_cancel)
+
+        vbox = QVBoxLayout()
+        vbox.addStretch(1)
+        vbox.addWidget(lbl)
+        vbox.addStretch(1)
+        vbox.addWidget(self.rbtn_easy)
+        vbox.addWidget(self.rbtn_normal)
+        vbox.addWidget(self.rbtn_hard)
+        vbox.addStretch(1)
+        vbox.addLayout(hbox)
+        vbox.addStretch(1)
+
+        self.setLayout(vbox)
+
+    def set_speed(self):
+        global SPEED
+        if self.rbtn_easy.isChecked():
+            SPEED = SPD_LIST[0]
+        elif self.rbtn_normal.isChecked():
+            SPEED = SPD_LIST[1]
+        elif self.rbtn_hard.isChecked():
+            SPEED = SPD_LIST[2]
+        print('new speed : %d' % SPEED)
+        self.close()
+
 class GameWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -183,19 +242,9 @@ class GameWindow(QMainWindow):
         QMessageBox().about(self, 'rank', 'to be implemented')
 
     def slot_setting(self):
-        print("setting!")
-        dlg = QDialog()
-        
-        btn1 = QRadioButton('111', self)
-        btn2 = QRadioButton('222', self)
-        btn3 = QPushButton('Save', self)
-        vbox = QVBoxLayout()
-        vbox.addWidget(btn1)
-        vbox.addWidget(btn2)
-        vbox.addWidget(btn3)
-        dlg.setLayout(vbox)
-        #
-        dlg.exec_()
+        print('setting!')
+        opt = OptionWindow()
+        opt.exec_()
 
 
 if __name__ == "__main__":

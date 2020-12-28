@@ -1,38 +1,73 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QFrame, QColorDialog
-from PyQt5.QtGui import QColor
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import Qt, QTimer
 
-
-class MyApp(QWidget):
-
+class LogInDialog(QDialog):
     def __init__(self):
         super().__init__()
-        self.initUI()
+        self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
+        self.setupUI()
 
-    def initUI(self):
-        col = QColor(0, 0, 0)
+        self.id = None
+        self.password = None
 
-        self.btn = QPushButton('Dialog', self)
-        self.btn.move(30, 30)
-        self.btn.clicked.connect(self.showDialog)
+    def setupUI(self):
+        self.setGeometry(1100, 200, 300, 100)
+        self.setWindowTitle("Sign In")
+        self.setWindowIcon(QIcon('icon.png'))
 
-        self.frm = QFrame(self)
-        self.frm.setStyleSheet('QWidget { background-color: %s }' % col.name())
-        self.frm.setGeometry(130, 35, 100, 100)
+        label1 = QLabel("ID: ")
+        label2 = QLabel("Password: ")
 
-        self.setWindowTitle('Color Dialog')
-        self.setGeometry(300, 300, 250, 180)
-        self.show()
+        self.lineEdit1 = QLineEdit()
+        self.lineEdit2 = QLineEdit()
+        self.pushButton1= QPushButton("Sign In")
+        self.pushButton1.clicked.connect(self.pushButtonClicked)
 
-    def showDialog(self):
-        col = QColorDialog.getColor()
+        layout = QGridLayout()
+        layout.addWidget(label1, 0, 0)
+        layout.addWidget(self.lineEdit1, 0, 1)
+        layout.addWidget(self.pushButton1, 0, 2)
+        layout.addWidget(label2, 1, 0)
+        layout.addWidget(self.lineEdit2, 1, 1)
 
+        self.setLayout(layout)
 
-        if col.isValid():
-            self.frm.setStyleSheet('QWidget { background-color: %s }' % col.name())
+    def pushButtonClicked(self):
+        self.id = self.lineEdit1.text()
+        self.password = self.lineEdit2.text()
+        self.close()
 
+class MyWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setupUI()
 
-if __name__ == '__main__':
+    def setupUI(self):
+        self.setGeometry(800, 200, 300, 300)
+        self.setWindowTitle("PyStock v0.1")
+        self.setWindowIcon(QIcon('icon.png'))
+
+        self.pushButton = QPushButton("Sign In")
+        self.pushButton.clicked.connect(self.pushButtonClicked)
+        self.label = QLabel()
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.pushButton)
+        layout.addWidget(self.label)
+
+        self.setLayout(layout)
+
+    def pushButtonClicked(self):
+        dlg = LogInDialog()
+        dlg.exec_()
+        id = dlg.id
+        password = dlg.password
+        self.label.setText("id: %s password: %s" % (id, password))
+
+if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ex = MyApp()
-    sys.exit(app.exec_())
+    window = MyWindow()
+    window.show()
+    app.exec_()

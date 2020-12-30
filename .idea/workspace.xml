@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d934b151-e608-453d-a35f-995f79ff55e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +32,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/game.py" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1m3RQTvZmhgobCj9cDlWNVQDK8K" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,7 +42,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RunManager" selected="Python.game">
     <configuration name="game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -122,34 +126,34 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state width="195" height="442" key="Diff.GoToChangePopup/62.0.1858.1080@62.0.1858.1080" timestamp="1609057032320" />
-    <state x="495" y="100" width="1332" height="880" key="DiffContextDialog" timestamp="1609057068301">
+    <state x="495" y="100" width="1332" height="880" key="DiffContextDialog" timestamp="1609248934299">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="495" y="100" width="1332" height="880" key="DiffContextDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1609057068301" />
-    <state width="1149" height="128" key="GridCell.Tab.0.bottom" timestamp="1609162124462">
+    <state x="495" y="100" width="1332" height="880" key="DiffContextDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1609248934299" />
+    <state width="1185" height="128" key="GridCell.Tab.0.bottom" timestamp="1609338925795">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1149" height="128" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1609162124462" />
-    <state width="1149" height="128" key="GridCell.Tab.0.center" timestamp="1609162124462">
+    <state width="1185" height="128" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
+    <state width="1185" height="128" key="GridCell.Tab.0.center" timestamp="1609338925795">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1149" height="128" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1609162124462" />
-    <state width="1149" height="128" key="GridCell.Tab.0.left" timestamp="1609162124462">
+    <state width="1185" height="128" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
+    <state width="1185" height="128" key="GridCell.Tab.0.left" timestamp="1609338925795">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1149" height="128" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1609162124462" />
-    <state width="1149" height="128" key="GridCell.Tab.0.right" timestamp="1609162124462">
+    <state width="1185" height="128" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
+    <state width="1185" height="128" key="GridCell.Tab.0.right" timestamp="1609338925795">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1149" height="128" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1609162124462" />
+    <state width="1185" height="128" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
     <state x="1256" y="241" key="RollbackChangesDialog" timestamp="1609045017005">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="1256" y="241" key="RollbackChangesDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1609045017005" />
-    <state x="750" y="163" key="SettingsEditor" timestamp="1609162014074">
+    <state x="178" y="177" key="SettingsEditor" timestamp="1609241370256">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state x="750" y="163" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1609162014074" />
+    <state x="178" y="177" key="SettingsEditor/62.0.1858.1080@62.0.1858.1080" timestamp="1609241370256" />
     <state x="1108" y="272" width="584" height="536" key="find.popup" timestamp="1609045252616">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

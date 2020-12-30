@@ -22,7 +22,6 @@
     <list default="true" id="d934b151-e608-453d-a35f-995f79ff55e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,22 +129,22 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="495" y="100" width="1332" height="880" key="DiffContextDialog/62.0.1858.1080@62.0.1858.1080" timestamp="1609248934299" />
-    <state width="1185" height="128" key="GridCell.Tab.0.bottom" timestamp="1609338925795">
+    <state width="1023" height="198" key="GridCell.Tab.0.bottom" timestamp="1609342699848">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1185" height="128" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
-    <state width="1185" height="128" key="GridCell.Tab.0.center" timestamp="1609338925795">
+    <state width="1023" height="198" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1609342699848" />
+    <state width="1023" height="198" key="GridCell.Tab.0.center" timestamp="1609342699848">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1185" height="128" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
-    <state width="1185" height="128" key="GridCell.Tab.0.left" timestamp="1609338925795">
+    <state width="1023" height="198" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1609342699848" />
+    <state width="1023" height="198" key="GridCell.Tab.0.left" timestamp="1609342699848">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1185" height="128" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
-    <state width="1185" height="128" key="GridCell.Tab.0.right" timestamp="1609338925795">
+    <state width="1023" height="198" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1609342699848" />
+    <state width="1023" height="198" key="GridCell.Tab.0.right" timestamp="1609342699848">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
-    <state width="1185" height="128" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1609338925795" />
+    <state width="1023" height="198" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1609342699848" />
     <state x="1256" y="241" key="RollbackChangesDialog" timestamp="1609045017005">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>

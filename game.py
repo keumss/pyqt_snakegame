@@ -17,6 +17,7 @@ dir_keys = [Qt.Key_Up, Qt.Key_Right, Qt.Key_Down, Qt.Key_Left]
 dx = [0, 1, 0, -1]
 dy = [-1, 0, 1, 0]
 
+THEME = 2
 themes = [
     {'head':QColor(Qt.black), 'body':QColor(Qt.darkGreen),
      'apple':QColor(Qt.red), 'background':QColor('#e7e7e7'),
@@ -55,14 +56,13 @@ class GameBoard(QWidget):
         self.newGame()
 
     def initGame(self):
-        self.theme = 2
         pal = QPalette()
-        pal.setColor(QPalette.Window, themes[self.theme]['background'])
+        pal.setColor(QPalette.Window, themes[THEME]['background'])
         self.setAutoFillBackground(True)
         self.setPalette(pal)
 
         self.lbl_score = QLabel(self)
-        self.lbl_score.setStyleSheet('color: ' + themes[self.theme]['score'])
+        self.lbl_score.setStyleSheet('color: ' + themes[THEME]['score'])
         self.lbl_score.move(BOARD_W - 100, 0)
         self.lbl_score.resize(100, 30)
         font = self.lbl_score.font()
@@ -128,18 +128,18 @@ class GameBoard(QWidget):
     def drawGame(self, qp):
         # draw apple
         qp.setPen(Qt.NoPen)
-        qp.setBrush(themes[self.theme]['apple'])
+        qp.setBrush(themes[THEME]['apple'])
         qp.drawRect(self.apple[0] * UNIT_CELL_LEN, self.apple[1] * UNIT_CELL_LEN, UNIT_CELL_LEN, UNIT_CELL_LEN)
 
         # draw snake body
         body = self.snake.body[1:]
-        qp.setBrush(themes[self.theme]['body'])
+        qp.setBrush(themes[THEME]['body'])
         for cell in body:
             qp.drawRect(cell[0] * UNIT_CELL_LEN, cell[1] * UNIT_CELL_LEN, UNIT_CELL_LEN, UNIT_CELL_LEN)
 
         # draw snake head
         head = self.snake.body[0]
-        qp.setBrush(themes[self.theme]['head'])
+        qp.setBrush(themes[THEME]['head'])
         qp.drawRect(head[0] * UNIT_CELL_LEN, head[1] * UNIT_CELL_LEN, UNIT_CELL_LEN, UNIT_CELL_LEN)
 
 class GameWindow(QMainWindow):
@@ -200,8 +200,9 @@ class GameWindow(QMainWindow):
                     self.gb.snake.ndir = nd
 
     def slot_theme(self):
-        print("theme")
-        QMessageBox().about(self, 'theme', 'to be implemented')
+        print("theme!")
+        thm = ThemeWindow()
+        thm.exec_()
 
     def slot_setting(self):
         print('setting!')
@@ -211,6 +212,63 @@ class GameWindow(QMainWindow):
     def slot_heart(self):
         print("heart")
         QMessageBox().about(self, '???', '안녕 ㅎㅎㅎ')
+
+class ThemeWindow(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        vbox = QVBoxLayout()
+        vbox.addWidget(self.createModeGroup())
+        vbox.addWidget(self.createThemeGroup())
+        vbox.addLayout(self.createButtons())
+        self.setLayout(vbox)
+
+        self.setWindowTitle('Theme')
+        self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
+
+    def createModeGroup(self):
+        self.rbtn_easy = QRadioButton('Easy', self)
+        self.rbtn_normal = QRadioButton('Normal', self)
+        self.rbtn_hard = QRadioButton('Hard', self)
+        hbox = QHBoxLayout()
+        hbox.addWidget(self.rbtn_easy)
+        hbox.addWidget(self.rbtn_normal)
+        hbox.addWidget(self.rbtn_hard)
+        groupbox = QGroupBox('Select mode', self)
+        groupbox.setLayout(hbox)
+        return groupbox
+
+    def createThemeGroup(self):
+        self.rbtn_thm1 = QRadioButton('theme1', self)
+        self.rbtn_thm2 = QRadioButton('theme2', self)
+        self.rbtn_thm3 = QRadioButton('theme3', self)
+        if THEME == 0:
+            self.rbtn_thm1.setChecked(True)
+        elif THEME == 1:
+            self.rbtn_thm2.setChecked(True)
+        elif THEME == 2:
+            self.rbtn_thm3.setChecked(True)
+
+        grid = QGridLayout()
+        grid.addWidget(self.rbtn_thm1, 0, 0)
+        grid.addWidget(self.rbtn_thm2, 0, 1)
+        grid.addWidget(self.rbtn_thm3, 0, 2)
+
+        groupbox = QGroupBox('Select theme', self)
+        groupbox.setLayout(grid)
+        return groupbox
+
+    def createButtons(self):
+        btn_save = QPushButton('Save', self)
+        #btn_save.clicked.connect(self.set_theme)
+        btn_cancel = QPushButton('Cancel', self)
+        btn_cancel.clicked.connect(self.close)
+        hbox = QHBoxLayout()
+        hbox.addWidget(btn_save)
+        hbox.addWidget(btn_cancel)
+        return hbox
 
 class OptionWindow(QDialog):
     def __init__(self):
@@ -222,7 +280,7 @@ class OptionWindow(QDialog):
         self.setWindowTitle('Option')
         self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
 
-        self.val = SPD_LIST.index(SPEED)
+        val = SPD_LIST.index(SPEED)
         print('cur speed : %d' % SPEED)
 
         lbl = QLabel('Select game mode')
@@ -230,11 +288,11 @@ class OptionWindow(QDialog):
         self.rbtn_normal = QRadioButton('Normal', self)
         self.rbtn_hard = QRadioButton('Hard', self)
 
-        if self.val == 0:
+        if val == 0:
             self.rbtn_easy.setChecked(True)
-        elif self.val == 1:
+        elif val == 1:
             self.rbtn_normal.setChecked(True)
-        elif self.val == 2:
+        elif val == 2:
             self.rbtn_hard.setChecked(True)
 
         btn_save = QPushButton('Save', self)

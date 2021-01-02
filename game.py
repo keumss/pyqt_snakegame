@@ -1,7 +1,7 @@
 import sys
 import random
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QIcon, QPainter, QPen, QColor, QBrush, QPalette
+from PyQt5.QtGui import QIcon, QPainter, QPen, QColor, QBrush, QPalette, QPixmap
 from PyQt5.QtCore import Qt, QTimer
 
 SPEED = 50 # 50:easy, 40:normal, 30:hard
@@ -52,7 +52,7 @@ class Snake:
 class GameBoard(QWidget):
     def __init__(self):
         super().__init__()
-        self.resize(BOARD_W, BOARD_H)
+        #self.resize(BOARD_W, BOARD_H)
         self.initGame()
         self.newGame()
 
@@ -152,12 +152,13 @@ class GameWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Snake Game')
-        self.setFixedSize(BOARD_W, BOARD_H + UNIT_CELL_LEN)     #self.resize(BOARD_W, BOARD_H)
-        self.center()
         self.initMenu()
         self.gb = GameBoard()
         self.setCentralWidget(self.gb)
+
+        self.setWindowTitle('Snake Game')
+        self.setFixedSize(BOARD_W, BOARD_H + self.menubar.height())     #self.resize(BOARD_W, BOARD_H)
+        self.center()
 
     def center(self):
         qr = self.frameGeometry()
@@ -178,9 +179,10 @@ class GameWindow(QMainWindow):
         action_quit.setShortcut('Ctrl+Q')
         action_quit.triggered.connect(self.close)
 
-        menubar = self.menuBar()
-        menubar.setNativeMenuBar(False)
-        filemenu = menubar.addMenu('File')
+        self.menubar = self.menuBar()
+        self.menubar.setNativeMenuBar(False)
+        self.menubar.setFixedHeight(30)
+        filemenu = self.menubar.addMenu('File')
         filemenu.addAction(action_setting)
         #filemenu.addAction(action_heart)
         filemenu.addAction(action_quit)
@@ -229,7 +231,7 @@ class SettingWindow(QDialog):
         vbox.addLayout(self.createButtons())
         self.setLayout(vbox)
 
-        self.setWindowTitle('Theme')
+        self.setWindowTitle('Setting')
         self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
 
     def createModeGroup(self):
@@ -241,6 +243,7 @@ class SettingWindow(QDialog):
         hbox = QHBoxLayout()
         for i in range(0, len(SPD_LIST)):
             hbox.addWidget(self.mode_rbtns[i])
+
         groupbox = QGroupBox('Select mode', self)
         groupbox.setLayout(hbox)
         return groupbox
@@ -254,9 +257,32 @@ class SettingWindow(QDialog):
         grid = QGridLayout()
         for i in range(0, len(THEME_LIST)):
             grid.addWidget(self.theme_rbtns[i], 0, i)
+            grid.addWidget(self.createThemeSample(i), 1, i)
+
         groupbox = QGroupBox('Select theme', self)
         groupbox.setLayout(grid)
         return groupbox
+
+    def createThemeSample(self, theme):
+        len = int(UNIT_CELL_LEN / 2)
+        pixmap = QPixmap(UNIT_CELL_LEN * 2, UNIT_CELL_LEN * 2)
+        pixmap.fill(THEME_LIST[theme]['background'])
+
+        qp = QPainter()
+        qp.begin(pixmap)
+        qp.setPen(Qt.NoPen)
+        qp.setBrush(THEME_LIST[theme]['head'])
+        qp.drawRect(len*2, len*1, len, len)
+        qp.setBrush(THEME_LIST[theme]['body'])
+        qp.drawRect(0, 0, len*3, len)
+        qp.drawRect(0, 0, len, len*4)
+        qp.setBrush(THEME_LIST[theme]['apple'])
+        qp.drawRect(len*3, len*3, len, len)
+        qp.end()
+
+        lbl = QLabel()
+        lbl.setPixmap(pixmap)
+        return lbl
 
     def createButtons(self):
         btn_save = QPushButton('Save', self)
@@ -278,7 +304,6 @@ class SettingWindow(QDialog):
                 self.theme = i
                 break
         self.close()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

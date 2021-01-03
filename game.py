@@ -171,10 +171,6 @@ class GameWindow(QMainWindow):
         action_setting.setShortcut('Ctrl+O')
         action_setting.triggered.connect(self.slot_setting)
 
-        action_heart = QAction(QIcon('image/heart.PNG'), '???', self)
-        action_heart.setShortcut('Ctrl+H')
-        action_heart.triggered.connect(self.slot_heart)
-
         action_quit = QAction(QIcon('image/exit.png'), 'Quit', self)
         action_quit.setShortcut('Ctrl+Q')
         action_quit.triggered.connect(self.close)
@@ -184,7 +180,6 @@ class GameWindow(QMainWindow):
         self.menubar.setFixedHeight(30)
         filemenu = self.menubar.addMenu('File')
         filemenu.addAction(action_setting)
-        #filemenu.addAction(action_heart)
         filemenu.addAction(action_quit)
 
     def keyPressEvent(self, e):
@@ -212,10 +207,6 @@ class GameWindow(QMainWindow):
             self.gb.setBackgroundColor(THEME_LIST[THEME]['background'])
             self.gb.lbl_score.setStyleSheet('color: ' + THEME_LIST[THEME]['score'])
             print('new SPEED: %d, THEME: %d' % (SPEED, THEME))
-
-    def slot_heart(self):
-        print("heart")
-        QMessageBox().about(self, '???', '안녕 ㅎㅎㅎ')
 
 class SettingWindow(QDialog):
     def __init__(self):
